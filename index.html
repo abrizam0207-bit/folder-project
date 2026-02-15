@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dzikir Harian</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f9f6;
+  --card:#ffffff;
+  --primary:#2e8b57;
+  --secondary:#e8f3ec;
+  --text:#1f2937;
+}
+
+body.dark{
+  --bg:#071f14;
+  --card:#0f2e20;
+  --primary:#4cff9a;
+  --secondary:#123b2a;
+  --text:#eafff4;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
+
+/* HEADER */
+header{
+  padding:50px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#2e8b57,#6fbf9c);
+  color:#fff;
+}
+header h1{margin:0;font-size:2.3rem}
+header p{opacity:.9}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--card);
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+nav a{
+  text-decoration:none;
+  color:var(--primary);
+  font-size:.85rem;
+}
+
+/* CONTROLS */
+.controls{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  padding:15px;
+}
+button{
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  background:var(--primary);
+  color:#fff;
+  cursor:pointer;
+}
+
+/* SECTION */
+section{
+  padding:30px 18px;
+}
+section h2{
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:20px;
+}
+
+/* CARD DZIKIR */
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+.arab{
+  font-family:Amiri,serif;
+  font-size:1.8rem;
+  text-align:right;
+}
+.latin{font-style:italic;margin-top:10px}
+.arti{opacity:.85;margin-top:8px}
+
+/* COUNTER */
+.counter{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:15px;
+}
+.counter span{font-size:.9rem}
+
+/* FOOTER */
+footer{
+  background:var(--secondary);
+  padding:25px;
+  text-align:center;
+  font-size:.85rem;
+}
+
+/* SENJA */
+.senja{
+  background:linear-gradient(#fff3e6,#fdebd0);
+}
+body.dark .senja{
+  background:linear-gradient(#0f2e20,#164d35);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Dzikir Harian</h1>
+  <p>Deandra And Abdur</p>
+</header>
+
+<nav>
+  <a href="#beranda">Beranda</a>
+  <a href="#pagi">Pagi</a>
+  <a href="#petang">Petang</a>
+  <a href="#shalat">Shalat</a>
+  <a href="#keutamaan">Keutamaan</a>
+</nav>
+
+<div class="controls">
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+  <button onclick="zoom(1)">A+</button>
+  <button onclick="zoom(-1)">A-</button>
+</div>
+
+<section id="beranda">
+  <p style="text-align:center;max-width:600px;margin:auto">
+    Website dzikir harian sesuai tuntunan Rasulullah ﷺ berdasarkan
+    <b>Dzikir Pagi & Petang – Yazid bin Abdul Qadir Jawas</b>.
+  </p>
+</section>
+
+<!-- DZIKIR PAGI -->
+<section id="pagi">
+<h2>Dzikir Pagi</h2>
+
+<div class="card">
+  <div class="arab">أَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
+  <div class="latin">A‘ūdzu billāhi minasy-syaithānir-rajīm</div>
+  <div class="arti">Aku berlindung kepada Allah dari godaan setan yang terkutuk.</div>
+</div>
+
+<div class="card">
+  <div class="arab">اللّٰهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا</div>
+  <div class="latin">Allāhumma bika aṣbaḥnā wa bika amsaynā…</div>
+  <div class="arti">Ya Allah, dengan-Mu kami memasuki pagi…</div>
+</div>
+
+</section>
+
+<!-- DZIKIR PETANG -->
+<section id="petang" class="senja">
+<h2>Dzikir Petang</h2>
+
+<div class="card">
+  <div class="arab">اللّٰهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا</div>
+  <div class="latin">Allāhumma bika amsaynā wa bika aṣbaḥnā…</div>
+  <div class="arti">Ya Allah, dengan-Mu kami memasuki petang…</div>
+</div>
+
+</section>
+
+<!-- DZIKIR SHALAT -->
+<section id="shalat">
+<h2>Dzikir Setelah Shalat</h2>
+
+<div class="card">
+  <div class="arab">أَسْتَغْفِرُ اللّٰهَ</div>
+  <div class="latin">Astaghfirullāh</div>
+  <div class="arti">Aku memohon ampun kepada Allah.</div>
+
+  <div class="counter">
+    <span id="c1">0 / 3</span>
+    <button onclick="count('c1',3)">+</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="arab">سُبْحَانَ اللّٰهِ</div>
+  <div class="latin">Subḥānallāh</div>
+  <div class="arti">Maha Suci Allah.</div>
+
+  <div class="counter">
+    <span id="c2">0 / 33</span>
+    <button onclick="count('c2',33)">+</button>
+  </div>
+</div>
+
+</section>
+
+<section id="keutamaan">
+<h2>Keutamaan Dzikir</h2>
+<p style="max-width:600px;margin:auto;text-align:center">
+“Ketahuilah, dengan mengingat Allah hati menjadi tenang.”
+(QS. Ar-Ra’d: 28)
+</p>
+</section>
+
+<footer>
+  <p>© 2026 Dzikir Harian · Dibuat untuk ketenangan & ibadah</p>
+</footer>
+
+<script>
+let fontSize=1;
+function zoom(v){
+  fontSize+=v*0.1;
+  document.body.style.fontSize=fontSize+"rem";
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+function count(id,max){
+  let el=document.getElementById(id);
+  let n=parseInt(el.innerText);
+  if(n<max){
+    n++;
+    el.innerText=n+" / "+max;
+    if(n==max) el.style.color="var(--primary)";
+  }
+}
+</script>
+
+</body>
+</html>
