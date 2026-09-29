@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Dzikir Harian Lengkap berdasarkan Kitab Ustadz Yazid bin Abdul Qadir Jawas - Dzikir Pagi, Petang, dan Setelah Shalat">
+    <title>Dzikir Harian | Kitab Ustadz Yazid bin Abdul Qadir Jawas</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-light: linear-gradient(135deg, #e8f5e9 0%, #c8e6d9 50%, #b8dfc6 100%);
+            --card-light: rgba(255, 255, 250, 0.95);
+            --text-light: #1b4d2e;
+            --accent-green: #2e7d5e;
+            --accent-gold: #c9a03d;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            --border-radius: 28px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-light);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        /* Dark Mode - Hijau Lebih Terang */
+        body.dark {
+            --bg-light: linear-gradient(135deg, #0a2e1a 0%, #1a4a2a 50%, #0d3b20 100%);
+            --card-light: #1e4a2ee6;
+            --text-light: #e8f5e9;
+            --accent-green: #7bc47f;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark .card {
+            background: #2a5a38cc;
+            backdrop-filter: blur(10px);
+        }
+
+        body.dark .menu-container {
+            background: #1e452ce6;
+        }
+
+        body.dark .nav-link.active {
+            background: #7bc47f;
+            color: #0a2e1a;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 245, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(46, 125, 94, 0.2);
+        }
+
+        body.dark header {
+            background: #0e3a24cc;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #2e7d5e, #5cb85c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.dark .logo h1 {
+            background: linear-gradient(135deg, #a5d6a5, #c8e6c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .icon-btn {
+            background: #e8f5e9;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #2e7d5e;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.02);
+            background: #c8e6d9;
+        }
+
+        /* Progress Bar Global */
+        .global-progress {
+            margin-top: 12px;
+            background: rgba(46, 125, 94, 0.2);
+            border-radius: 30px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #2e7d5e, #7bc47f);
+            width: 0%;
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 30px;
+        }
+
+        /* Menu Navigasi */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 245, 0.9);
+            backdrop-filter: blur(8px);
+            margin: 20px auto 0;
+            padding: 12px 20px;
+            border-radius: 60px;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            font-weight: 500;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            color: #2e7d5e;
+        }
+
+        .nav-link.active {
+            background: #2e7d5e;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-light);
+            backdrop-filter: blur(4px);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--accent-green);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: right;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+
+        .latin {
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3a7a5a;
+        }
+
+        body.dark .latin {
+            color: #c8e6d9;
+        }
+
+        .translation {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 16px;
+            margin: 12px 0;
+            font-size: 0.95rem;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+            align-items: center;
+        }
+
+        .btn-done {
+            background: #d4ecd0;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-done.completed {
+            background: #2e7d5e;
+            color: white;
+        }
+
+        .play-audio {
+            background: #e8f0e5;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Counter Styles */
+        .counter-group {
+            background: rgba(46, 125, 94, 0.1);
+            border-radius: 50px;
+            padding: 12px 20px;
+            margin: 12px 0;
+        }
+
+        .badge-counter {
+            display: inline-block;
+            background: #c8e6d9;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        .small-count {
+            background: #e8f5e9;
+            border: 1px solid #2e7d5e;
+            border-radius: 30px;
+            padding: 5px 14px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Tabs untuk Shalat */
+        .shalat-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tab-btn {
+            background: #e8f5e9;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active-tab {
+            background: #2e7d5e;
+            color: white;
+        }
+
+        .shalat-content {
+            display: none;
+        }
+
+        .shalat-content.active-content {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            background: #d4ecd0;
+            border-radius: 2rem 2rem 0 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        body.dark footer {
+            background: #1a3a28;
+        }
+
+        @media (max-width: 768px) {
+            .arabic { font-size: 1.5rem; }
+            .card { padding: 1.2rem; }
+            .nav-link { padding: 6px 14px; font-size: 0.8rem; }
+            .icon-btn { padding: 6px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1><i class="fas fa-tasbih"></i> Dzikir Harian</h1>
+            <p style="font-size: 0.8rem;">Kitab Ustadz Yazid bin Abdul Qadir Jawas</p>
+        </div>
+        <div class="controls">
+            <button id="darkModeToggle" class="icon-btn"><i class="fas fa-moon"></i> Night Mode</button>
+            <button id="increaseText" class="icon-btn"><i class="fas fa-plus-circle"></i> A+</button>
+            <button id="decreaseText" class="icon-btn"><i class="fas fa-minus-circle"></i> A-</button>
+            <button id="reminderBtn" class="icon-btn"><i class="fas fa-bell"></i> Ingatkan</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="global-progress">
+            <div class="progress-fill" id="globalProgressFill"></div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 5px;" id="progressText">Progress hari ini: 0%</p>
+    </div>
+    <div class="container menu-container">
+        <button class="nav-link active" data-section="beranda">🏠 Beranda</button>
+        <button class="nav-link" data-section="pagi">🌅 Dzikir Pagi</button>
+        <button class="nav-link" data-section="petang">🌙 Dzikir Petang</button>
+        <button class="nav-link" data-section="shalat">🕋 Dzikir Setelah Shalat</button>
+        <button class="nav-link" data-section="keutamaan">📖 Keutamaan</button>
+        <button class="nav-link" data-section="tentang">ℹ️ Tentang</button>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Beranda -->
+    <div id="beranda" class="section active-section">
+        <div class="card">
+            <h2><i class="fas fa-star-and-crescent"></i> Bismillahirrahmanirrahim</h2>
+            <p>Selamat datang di <strong>Dzikir Harian</strong> berdasarkan kitab <strong>"Dzikir Pagi Petang & Doa Harian"</strong> karya <strong>Ustadz Yazid bin Abdul Qadir Jawas</strong> - hafizhahullah (murid Syaikh Bin Baz dan Syaikh Al Albani).</p>
+            <p style="margin-top: 15px;">Semoga Allah mudahkan kita semua untuk mengamalkan dzikir-dzikir ini setiap hari.</p>
+            <div style="display: flex; justify-content: center; gap: 30px; margin: 25px 0;">
+                <i class="fas fa-mosque fa-3x"></i>
+                <i class="fas fa-quran fa-3x"></i>
+                <i class="fas fa-praying-hands fa-3x"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dzikir Pagi - Dinamis dengan JS -->
+    <div id="pagi" class="section">
+        <div id="pagi-container"></div>
+        <div class="card" style="text-align: center;">
+            <p><i class="fas fa-check-circle"></i> <span id="pagiProgress">0</span>/<span id="pagiTotal">0</span> dzikir pagi telah dibaca hari ini</p>
+        </div>
+    </div>
+
+    <!-- Dzikir Petang -->
+    <div id="petang" class="section">
+        <div id="petang-container"></div>
+        <div class="card" style="text-align: center;">
+            <p><i class="fas fa-check-circle"></i> <span id="petangProgress">0</span>/<span id="petangTotal">0</span> dzikir petang telah dibaca hari ini</p>
+        </div>
+    </div>
+
+    <!-- Dzikir Setelah Shalat -->
+    <div id="shalat" class="section">
+        <div class="card">
+            <h3><i class="fas fa-clock"></i> Dzikir Setelah Shalat Fardhu</h3>
+            <div class="shalat-tabs" id="shalatTabs"></div>
+            <div id="shalatContentContainer"></div>
+        </div>
+    </div>
+
+    <!-- Keutamaan Dzikir -->
+    <div id="keutamaan" class="section">
+        <div class="card">
+            <h3><i class="fas fa-hadith"></i> Keutamaan Dzikir</h3>
+            <p>📖 <strong>QS. Ar-Ra'd:28</strong> - "(Yaitu) orang-orang yang beriman dan hati mereka menjadi tenteram dengan mengingat Allah. Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram."</p>
+            <p>📖 <strong>QS. Al-Ahzab:41</strong> - "Hai orang-orang yang beriman, berzdikirlah (dengan menyebut nama) Allah, zikir yang sebanyak-banyaknya."</p>
+            <p>📖 <strong>Hadis Riwayat Muslim</strong> - "Perumpamaan orang yang berdzikir kepada Rabbnya dan yang tidak berdzikir seperti orang yang hidup dan orang yang mati."</p>
+            <p>📖 <strong>HR. Bukhari Muslim</strong> - "Barangsiapa yang bertasbih 33x, bertahmid 33x, bertakbir 34x setelah shalat, maka dosanya diampuni seperti buih lautan."</p>
+        </div>
+    </div>
+
+    <!-- Tentang -->
+    <div id="tentang" class="section">
+        <div class="card">
+            <h3><i class="fas fa-book"></i> Tentang Website</h3>
+            <p>Website ini dibuat berdasarkan kitab <strong>"Dzikir Pagi Petang & Doa Harian"</strong> karya <strong>Ustadz Yazid bin Abdul Qadir Jawas</strong> (murid Syaikh Bin Baz dan Syaikh Al Albani). Semua dzikir yang tercantum adalah shahih sesuai tuntunan Rasulullah ﷺ.</p>
+            <p><strong>Adab berdzikir:</strong> Menghadap kiblat, dalam keadaan suci, khusyuk, dan memahami maknanya.</p>
+            <p><i class="fas fa-mobile-alt"></i> Website ini responsif dan dapat diakses kapan saja, di mana saja.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <i class="fas fa-dove"></i> "Sesungguhnya dalam mengingat Allah hati menjadi tenteram." (QS Ar-Ra'd:28)<br>
+    © 2026 Dzikir Harian | Berdasarkan Kitab Ustadz Yazid bin Abdul Qadir Jawas
+</footer>
+
+<script>
+    // ======================= DATABASE DZIKIR PAGI (15+) =======================
+    const dzikirPagi = [
+        { arab: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ", latin: "A'udzu billahi minasy syaithanir rajim", arti: "Aku berlindung kepada Allah dari godaan setan yang terkutuk." },
+        { arab: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ", latin: "Bismillahirrahmanirrahim", arti: "Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang." },
+        { arab: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", latin: "La ilaha illallah wahdahu la sharika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai'in qadir", arti: "Tidak ada tuhan selain Allah semata, tiada sekutu bagi-Nya, milik-Nya kerajaan dan pujian, Dia Mahakuasa atas segala sesuatu." },
+        { arab: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", latin: "Subhanallah wa bihamdihi (100x)", arti: "Maha Suci Allah dan dengan memuji-Nya." },
+        { arab: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ", latin: "Asbahna wa asbahal mulku lillah", arti: "Kami memasuki waktu pagi dan kerajaan milik Allah." },
+        { arab: "اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا", latin: "Allahumma bika asbahna wa bika amsaina", arti: "Ya Allah, dengan-Mu kami pagi dan dengan-Mu kami petang." },
+        { arab: "اللَّهُمَّ عَافِنِي فِي بَدَنِي", latin: "Allahumma 'afini fi badani", arti: "Ya Allah, berikan kesehatan pada badanku." },
+        { arab: "رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلاَمِ دِينًا وَبِمُحَمَّدٍ نَبِيًّا", latin: "Radhitu billahi rabba, wa bil-islami dina, wa bi-muhammadin nabiyya", arti: "Aku ridha Allah sebagai Tuhanku, Islam sebagai agamaku, dan Muhammad sebagai nabiku." },
+        { arab: "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ", latin: "Hasbiyallahu la ilaha illa huwa", arti: "Cukuplah Allah bagiku, tiada tuhan selain Dia." },
+        { arab: "آيَةُ الْكُرْسِيِّ", latin: "Ayatul Kursi", arti: "Allah, tidak ada tuhan selain Dia, Yang Maha Hidup, Yang terus menerus mengurus makhluk-Nya." },
+        { arab: "قُلْ هُوَ اللَّهُ أَحَدٌ", latin: "Qul huwallahu ahad (3x)", arti: "Katakanlah: Dialah Allah Yang Maha Esa." },
+        { arab: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ", latin: "Qul a'udzu birabbil falaq (3x)", arti: "Katakanlah: Aku berlindung kepada Tuhan yang menguasai subuh." },
+        { arab: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", latin: "Qul a'udzu birabbin nas (3x)", arti: "Katakanlah: Aku berlindung kepada Tuhan (yang memelihara dan menguasai) manusia." },
+        { arab: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ", latin: "Allahumma sholli 'ala muhammad", arti: "Ya Allah, limpahkan shalawat kepada Nabi Muhammad." },
+        { arab: "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ", latin: "Astaghfirullahal 'adzim (3x)", arti: "Aku memohon ampun kepada Allah Yang Maha Agung." }
+    ];
+
+    const dzikirPetang = [
+        { arab: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ", latin: "Amsaina wa amsal mulku lillah", arti: "Kami memasuki waktu petang dan kerajaan milik Allah." },
+        { arab: "اللَّهُمَّ بِكَ أَمْسَيْنَا", latin: "Allahumma bika amsaina", arti: "Ya Allah, dengan-Mu kami petang." },
+        { arab: "اللَّهُمَّ أَجِرْنِي مِنَ النَّارِ", latin: "Allahumma ajirni minan naar", arti: "Ya Allah, lindungilah aku dari api neraka." },
+        { arab: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ", latin: "A'udzu bikalimatillahit-tammati min syarri ma khalaq", arti: "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk-Nya." },
+        { arab: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", latin: "Hasbunallahu wa ni'mal wakil", arti: "Cukuplah Allah bagi kami, dan sebaik-baik pelindung." },
+        { arab: "رَضِيتُ بِاللَّهِ رَبًّا", latin: "Radhitu billahi rabba", arti: "Aku ridha Allah sebagai Tuhanku." },
+        { arab: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ", latin: "La ilaha illallah wahdahu", arti: "Tiada tuhan selain Allah semata." },
+        { arab: "سُبْحَانَ اللَّهِ الْعَظِيمِ", latin: "Subhanallahil 'adzim", arti: "Maha Suci Allah Yang Maha Agung." },
+        { arab: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ", latin: "Allahumma sholli 'ala muhammad", arti: "Ya Allah, limpahkan shalawat kepada Muhammad." },
+        { arab: "أَسْتَغْفِرُ اللَّهَ رَبِّي مِنْ كُلِّ ذَنْبٍ", latin: "Astaghfirullah rabbi min kulli dzanb (3x)", arti: "Aku mohon ampun kepada Allah Tuhanku dari semua dosa." },
+        { arab: "لا إِلَهَ إِلاَّ اللَّهُ", latin: "La ilaha illallah", arti: "Tiada tuhan selain Allah." },
+        { arab: "آيَةُ الْكُرْسِيِّ", latin: "Ayatul Kursi", arti: "Bacalah Ayat Kursi untuk perlindungan malam." }
+    ];
+
+    let readStatus = { pagi: {}, petang: {} };
+    let counters = { istighfar: 0, tasbih: 0, tahmid: 0, takbir: 0 };
+
+    function renderDzikirList(containerId, data, type) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        data.forEach((item, idx) => {
+            const id = `${type}_${idx}`;
+            const isCompleted = readStatus[type]?.[idx] || false;
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="arabic">${item.arab}</div>
+                <div class="latin">${item.latin}</div>
+                <div class="translation">${item.arti}</div>
+                <div class="card-actions">
+                    <button class="btn-done" data-type="${type}" data-idx="${idx}" data-id="${id}">
+                        ${isCompleted ? '✅ Sudah Dibaca' : '📌 Tandai Dibaca'}
+                    </button>
+                    <button class="play-audio" data-audio="${item.arab.replace(/"/g, '&quot;')}">
+                        <i class="fas fa-headphones"></i> Dengarkan
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        attachDoneEvents();
+        attachAudioEvents();
+        updateProgress(type);
+    }
+
+    function attachDoneEvents() {
+        document.querySelectorAll('.btn-done').forEach(btn => {
+            btn.removeEventListener('click', doneHandler);
+            btn.addEventListener('click', doneHandler);
+        });
+    }
+
+    function doneHandler(e) {
+        const btn = e.currentTarget;
+        const type = btn.dataset.type;
+        const idx = parseInt(btn.dataset.idx);
+        if (!readStatus[type]) readStatus[type] = {};
+        if (readStatus[type][idx]) return;
+        readStatus[type][idx] = true;
+        localStorage.setItem(`dzikir_${type}`, JSON.stringify(readStatus[type]));
+        btn.innerHTML = '✅ Sudah Dibaca';
+        btn.classList.add('completed');
+        updateProgress(type);
+        updateGlobalProgress();
+    }
+
+    function updateProgress(type) {
+        const total = type === 'pagi' ? dzikirPagi.length : dzikirPetang.length;
+        const completed = readStatus[type] ? Object.values(readStatus[type]).filter(v => v === true).length : 0;
+        document.getElementById(`${type}Progress`).innerText = completed;
+        document.getElementById(`${type}Total`).innerText = total;
+    }
+
+    function updateGlobalProgress() {
+        const pagiDone = readStatus.pagi ? Object.values(readStatus.pagi).filter(v => v === true).length : 0;
+        const petangDone = readStatus.petang ? Object.values(readStatus.petang).filter(v => v === true).length : 0;
+        const total = dzikirPagi.length + dzikirPetang.length;
+        const done = pagiDone + petangDone;
+        const percent = total > 0 ? (done / total) * 100 : 0;
+        document.getElementById('globalProgressFill').style.width = `${percent}%`;
+        document.getElementById('progressText').innerHTML = `📊 Progress hari ini: ${Math.round(percent)}% (${done}/${total} dzikir)`;
+    }
+
+    function loadReadStatus() {
+        const savedPagi = localStorage.getItem('dzikir_pagi');
+        const savedPetang = localStorage.getItem('dzikir_petang');
+        if (savedPagi) readStatus.pagi = JSON.parse(savedPagi);
+        else readStatus.pagi = {};
+        if (savedPetang) readStatus.petang = JSON.parse(savedPetang);
+        else readStatus.petang = {};
+    }
+
+    function resetDailyAtMidnight() {
+        const lastDate = localStorage.getItem('lastResetDate');
+        const today = new Date().toDateString();
+        if (lastDate !== today) {
+            readStatus.pagi = {};
+            readStatus.petang = {};
+            localStorage.setItem('dzikir_pagi', JSON.stringify({}));
+            localStorage.setItem('dzikir_petang', JSON.stringify({}));
+            localStorage.setItem('lastResetDate', today);
+            renderDzikirList('pagi-container', dzikirPagi, 'pagi');
+            renderDzikirList('petang-container', dzikirPetang, 'petang');
+        }
+    }
+
+    // Dzikir Setelah Shalat Lengkap
+    function renderAfterShalat() {
+        const tabsContainer = document.getElementById('shalatTabs');
+        const contentContainer = document.getElementById('shalatContentContainer');
+        const shalatTimes = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
+        tabsContainer.innerHTML = '';
+        contentContainer.innerHTML = '';
+
+        shalatTimes.forEach((time, index) => {
+            const tabBtn = document.createElement('button');
+            tabBtn.className = `tab-btn ${index === 0 ? 'active-tab' : ''}`;
+            tabBtn.innerText = time;
+            tabBtn.dataset.time = time;
+            tabBtn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+                tabBtn.classList.add('active-tab');
+                document.querySelectorAll('.shalat-content').forEach(content => content.classList.remove('active-content'));
+                document.getElementById(`shalat-${time}`).classList.add('active-content');
+            });
+            tabsContainer.appendChild(tabBtn);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.id = `shalat-${time}`;
+            contentDiv.className = `shalat-content ${index === 0 ? 'active-content' : ''}`;
+            let extraDzikr = '';
+            if (time === 'Subuh') extraDzikr = '<p><strong>✨ Tambahan setelah Subuh:</strong> "Allahumma inni as\'aluka \'ilman naafi\'an wa rizqan thayyiban wa \'amalan mutaqabbalan"</p>';
+            if (time === 'Maghrib') extraDzikr = '<p><strong>🌙 Tambahan setelah Maghrib:</strong> Doa perlindungan dari fitnah malam: "Allahumma ajirni minan naar" 7x</p>';
+            if (time === 'Isya') extraDzikr = '<p><strong>🛌 Tambahan setelah Isya:</strong> Doa tidur: "Bismikallahumma ahya wa amut"</p>';
+            
+            contentDiv.innerHTML = `
+                <div class="counter-group"><strong>📿 Istighfar 3x</strong> <span id="istighfarCount-${time}">0/3</span> <button class="small-count" data-counter="istighfar" data-time="${time}">+1</button> <button class="small-count reset-counter" data-counter="istighfar" data-time="${time}">Reset</button></div>
+                <div class="counter-group"><strong>🤲 Allahumma antas-salaam</strong> <button class="btn-done-local" data-doa="salam">Tandai Baca</button> <span id="salamStatus-${time}">❌</span></div>
+                <div class="counter-group"><strong>📿 Tasbih 33x</strong> <span id="tasbihCount-${time}">0/33</span> <button class="small-count" data-counter="tasbih" data-time="${time}">+1</button> <button class="small-count reset-counter" data-counter="tasbih" data-time="${time}">Reset</button></div>
+                <div class="counter-group"><strong>📿 Tahmid 33x</strong> <span id="tahmidCount-${time}">0/33</span> <button class="small-count" data-counter="tahmid" data-time="${time}">+1</button> <button class="small-count reset-counter" data-counter="tahmid" data-time="${time}">Reset</button></div>
+                <div class="counter-group"><strong>📿 Takbir 34x</strong> <span id="takbirCount-${time}">0/34</span> <button class="small-count" data-counter="takbir" data-time="${time}">+1</button> <button class="small-count reset-counter" data-counter="takbir" data-time="${time}">Reset</button></div>
+                <div class="counter-group"><strong>🕋 Ayat Kursi</strong> <button class="btn-done-local" data-doa="kursi">Tandai Baca</button> <span id="kursiStatus-${time}">❌</span></div>
+                ${extraDzikr}
+            `;
+            contentContainer.appendChild(contentDiv);
+        });
+        attachCounterEvents();
+        attachLocalDoneEvents();
+    }
+
+    function attachCounterEvents() {
+        document.querySelectorAll('.small-count').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const counter = btn.dataset.counter;
+                const time = btn.dataset.time;
+                const isReset = btn.classList.contains('reset-counter');
+                let current = parseInt(localStorage.getItem(`${counter}_${time}`) || '0');
+                const max = { istighfar: 3, tasbih: 33, tahmid: 33, takbir: 34 }[counter];
+                if (isReset) current = 0;
+                else if (current < max) current++;
+                localStorage.setItem(`${counter}_${time}`, current);
+                document.getElementById(`${counter}Count-${time}`).innerText = `${current}/${max}`;
+            });
+        });
+    }
+
+    function attachLocalDoneEvents() {
+        document.querySelectorAll('.btn-done-local').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const doa = btn.dataset.doa;
+                const parent = btn.closest('.shalat-content');
+                const time = parent.id.replace('shalat-', '');
+                localStorage.setItem(`${doa}_${time}`, 'true');
+                const statusSpan = document.getElementById(`${doa}Status-${time}`);
+                if (statusSpan) statusSpan.innerText = '✅';
+                btn.disabled = true;
+            });
+        });
+        // Load saved status
+        ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'].forEach(time => {
+            ['istighfar', 'tasbih', 'tahmid', 'takbir'].forEach(c => {
+                const val = localStorage.getItem(`${c}_${time}`);
+                if (val) document.getElementById(`${c}Count-${time}`).innerText = `${val}/${c === 'istighfar' ? 3 : c === 'takbir' ? 34 : 33}`;
+            });
+            ['salam', 'kursi'].forEach(d => {
+                if (localStorage.getItem(`${d}_${time}`) === 'true') {
+                    const span = document.getElementById(`${d}Status-${time}`);
+                    if (span) span.innerText = '✅';
+                }
+            });
+        });
+    }
+
+    function attachAudioEvents() {
+        if ('speechSynthesis' in window) {
+            document.querySelectorAll('.play-audio').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const text = btn.dataset.audio;
+                    if (text) {
+                        window.speechSynthesis.cancel();
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.lang = 'ar-SA';
+                        utterance.rate = 0.85;
+                        utterance.pitch = 1;
+                        window.speechSynthesis.speak(utterance);
+                    }
+                });
+            });
+        }
+    }
+
+    // Navigation
+    function initNavigation() {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const sectionId = link.dataset.section;
+                document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active-section'));
+                document.getElementById(sectionId).classList.add('active-section');
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    }
+
+    // Dark Mode & Text Size
+    function initFeatures() {
+        const darkToggle = document.getElementById('darkModeToggle');
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+        });
+        if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark');
+
+        let fontSize = 100;
+        document.getElementById('increaseText').addEventListener('click', () => {
+            if (fontSize <= 130) { fontSize += 10; document.body.style.fontSize = fontSize + '%'; }
+        });
+        document.getElementById('decreaseText').addEventListener('click', () => {
+            if (fontSize >= 80) { fontSize -= 10; document.body.style.fontSize = fontSize + '%'; }
+        });
+
+        const reminderBtn = document.getElementById('reminderBtn');
+        reminderBtn.addEventListener('click', () => {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification('Dzikir Harian', { body: 'Waktu dzikir pagi (06:00) & petang (17:00)! Jangan lupa berdzikir.' });
+            } else if ('Notification' in window) {
+                Notification.requestPermission();
+                alert('Izinkan notifikasi untuk mendapatkan pengingat dzikir');
+            }
+        });
+        if ('Notification' in window && Notification.permission !== 'denied') Notification.requestPermission();
+    }
+
+    loadReadStatus();
+    renderDzikirList('pagi-container', dzikirPagi, 'pagi');
+    renderDzikirList('petang-container', dzikirPetang, 'petang');
+    renderAfterShalat();
+    initNavigation();
+    initFeatures();
+    resetDailyAtMidnight();
+    updateGlobalProgress();
+</script>
+</body>
+</html>
